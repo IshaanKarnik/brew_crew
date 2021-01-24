@@ -1,16 +1,14 @@
 # brew_crew
 
-A new Flutter project.
+Net Ninja Flutter & Firebase tutorial (Brew Crew).
+Playlist : https://youtube.com/playlist?list=PL4cUxeGkcC9j--TKIdkb3ISfRbJeJYQwC
 
 ## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This is a Flutter & Firebase tutorial.
+Create and configure a firebase app (Android).
+Download google-services.json in android/app folder. 
+You can download google-services.json from Project Overview -> Setting Icon -> Project Setting -> Your apps
+ 
+Reference for Firebase App Setup (for Android) and Configuration of build.gradle in your Aandroid App
+(1) Firebase Setup - https://youtu.be/Wa0rdbb53I8
+(2) Basic App Structure - https://youtu.be/z05m8nlPRxk
