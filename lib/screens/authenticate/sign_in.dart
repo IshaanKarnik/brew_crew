@@ -1,5 +1,5 @@
-import 'package:brew_crew/services/auth.dart';
 import 'package:flutter/material.dart';
+import 'package:brew_crew/services/auth.dart';
 
 class SignIn extends StatefulWidget {
   @override
@@ -12,28 +12,27 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.brown[200],
+      backgroundColor: Colors.brown[100],
       appBar: AppBar(
-        backgroundColor: Colors.brown[500],
-        title: Text('Sign In to Brew Crew'),
+        backgroundColor: Colors.brown[400],
+        title: Text('Sign In Brew Crew'),
         centerTitle: true,
+        elevation: 0.0,
       ),
       body: Container(
         padding: EdgeInsets.symmetric(
           vertical: 20.0,
           horizontal: 50.0,
         ),
-        child: FlatButton.icon(
+        child: RaisedButton(
+          child: Text('Sign In Anon'),
           onPressed: () async {
             dynamic result = await _authService.signInAnon();
-            if (result == null) {
-              print('Error Signing In');
-            } else {
-              print(result);
-            }
+            if (result == null)
+              print('Error Signing in');
+            else
+              print('Result : ${result.uid}');
           },
-          icon: Icon(Icons.login_rounded),
-          label: Text('Sign In'),
         ),
       ),
     );
