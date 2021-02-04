@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart' as Firebase;
 import 'package:brew_crew/models/user.dart' as UserModel;
+import 'package:flutter/cupertino.dart';
+import 'package:brew_crew/services/database.dart';
 //import 'package:flutter/foundation.dart';
 
 class AuthService {
@@ -26,11 +28,52 @@ class AuthService {
       //if (kDebugMode) print('User : $user');
       return _userFromFirebase(user);
     } catch (e) {
-      print(e);
+      print(e.toString());
       return null;
     }
   }
+
   //Sign in using email and password
+  Future signInWithEmailPassword(
+      {@required String email, @required String password}) async {
+    try {
+      Firebase.UserCredential result = await _auth.signInWithEmailAndPassword(
+          email: email, password: password);
+      Firebase.User user = result.user;
+      return user;
+    } catch (e) {
+      return e.toString();
+    }
+  }
+
+  //Resgister using email and password
+  Future registerWithEmailPassword(
+      {@required String email, @required String password}) async {
+    try {
+      Firebase.UserCredential resut = await _auth
+          .createUserWithEmailAndPassword(email: email, password: password);
+      Firebase.User user = resut.user;
+
+      //create a new document for user with uid
+      await DatabaseService(uid: user.uid).updateUserData(
+        sugars: '0',
+        name: 'new crew member',
+        strength: 100,
+      );
+      return _userFromFirebase(user);
+    } catch (e) {
+      //print(e.toString());
+      return e.toString();
+    }
+  }
   //Sign in using Gooogle
+
   //Sign Out
+  Future signOut() async {
+    try {
+      return await _auth.signOut();
+    } catch (e) {
+      print(e.toString());
+    }
+  }
 }
