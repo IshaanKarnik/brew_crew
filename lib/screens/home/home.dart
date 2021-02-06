@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:brew_crew/screens/home/brew_list.dart';
 
 class Home extends StatelessWidget {
-  AuthService _auth = AuthService();
+  final AuthService _auth = AuthService();
 
   @override
   Widget build(BuildContext context) {
